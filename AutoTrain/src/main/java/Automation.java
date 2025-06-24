@@ -21,7 +21,7 @@ public class Automation {
 
             Automation.selectDateAndTime(driver, wait, Globalvariable.datetime);
             Automation.selectTicket(driver, wait);
-            Discord.sendWebhook();
+            Discord.succesWebhook();
             
         }catch (Exception e) {
            e.printStackTrace();
@@ -58,6 +58,7 @@ public class Automation {
             System.out.println("로그인 시도");
         } catch (Exception e) {
             System.out.println("오류 발생: " + e.getMessage());
+            Discord.failWebhook("로그인, " + e.getMessage());
         }
     }
 
@@ -72,6 +73,7 @@ public class Automation {
             }
         } catch (NoSuchElementException e) {
             System.out.println("팝업 닫기 버튼이 없음");
+            Discord.failWebhook("팝업 닫기 버튼 없음");
         }
         return false;
     }
@@ -104,6 +106,7 @@ public class Automation {
             }
         } catch (Exception e) {
             System.out.println("역 선택 중 오류 발생: " + e.getMessage());
+            Discord.failWebhook("역 선택, " + e.getMessage());
         }
     }
 
@@ -205,6 +208,7 @@ public class Automation {
 
         } catch (Exception e) {
             System.out.println("에러 발생: " + e.getMessage());
+            Discord.failWebhook("날짜 선택, " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -233,6 +237,7 @@ public class Automation {
 
                     }catch (Exception e) {
                         System.out.println("요소 처리 중 오류 발생: " + e.getMessage());
+                        Discord.failWebhook("티켓 탐색 처리, " + e.getMessage());
                     }
                 }
                 // 2: 새로고침
@@ -249,6 +254,7 @@ public class Automation {
                     System.out.println("정차 경고 팝업 확인 버튼 클릭");
                 } catch (TimeoutException e) {
                     System.out.println("정차 경고 팝업 없음");
+                    Discord.failWebhook("정차 경고 팝업, " + e.getMessage());
                 }
 
                 // 3: 팝업제거
@@ -264,6 +270,7 @@ public class Automation {
             }
         } catch (Exception e) {
             System.out.println("에러 발생: " + e.getMessage());
+            Discord.failWebhook("티켓 탐색, " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -339,6 +346,7 @@ public class Automation {
 
         } catch (Exception e) {
             System.out.println("addToCartAfterClick 실행 중 오류: " + e.getMessage());
+            Discord.failWebhook("장바구니, " + e.getMessage());
             e.printStackTrace();
         }
     }

@@ -54,6 +54,7 @@ public class Globalvariable {
     public static final String[] SEATOPTION = {"일반식", "입석 + 좌석", "특실"};
 
     //입력데이터
+    public static final String Discord_webhook_url_error = "https://discordapp.com/api/webhooks/1377915649791098911/nruU3tctx_9hmbSfRsSDf9c6T-R7j7gk1tNfPalg3IuhfTBra6g7fSBYTY8kyY34JM_Z";
     public static final String DATAPATH = "data.txt";
     public static String korail_id = "";
     public static String korail_pw = "";

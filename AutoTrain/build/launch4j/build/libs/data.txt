@@ -1,0 +1,3 @@
+Discord_url
+코레일ID
+코레일pw

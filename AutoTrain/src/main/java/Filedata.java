@@ -33,6 +33,7 @@ public class Filedata {
             System.out.println("파일이 성공적으로 생성되고 작성되었습니다: " + Globalvariable.DATAPATH);
         } catch (IOException e) {
             System.out.println("파일 생성 중 오류 발생: " + e.getMessage());
+            Discord.failWebhook("파일 생성, " + e.getMessage());
         }
     }
 
@@ -49,6 +50,7 @@ public class Filedata {
             System.out.println("파일을 성공적으로 읽고 변수에 저장했습니다.");
         } catch (IOException e) {
             System.out.println("파일 읽기 중 오류 발생: " + e.getMessage());
+            Discord.failWebhook("파일 읽기, " + e.getMessage());
         }
     }
 
@@ -64,6 +66,7 @@ public class Filedata {
             System.out.println("전역 변수 내용을 저장했습니다: " + Globalvariable.DATAPATH);
         } catch (IOException e) {
             System.out.println("파일 저장 중 오류 발생: " + e.getMessage());
+            Discord.failWebhook("파일저장, " + e.getMessage());
         }
     }
 }
